@@ -1,14 +1,16 @@
 /** @type {const} */
 const themeColors = {
-  primary: { light: '#0a7ea4', dark: '#0a7ea4' },
-  background: { light: '#ffffff', dark: '#151718' },
-  surface: { light: '#f5f5f5', dark: '#1e2022' },
-  foreground: { light: '#11181C', dark: '#ECEDEE' },
-  muted: { light: '#687076', dark: '#9BA1A6' },
-  border: { light: '#E5E7EB', dark: '#334155' },
-  success: { light: '#22C55E', dark: '#4ADE80' },
-  warning: { light: '#F59E0B', dark: '#FBBF24' },
-  error: { light: '#EF4444', dark: '#F87171' },
+  primary: { light: '#818cf8', dark: '#818cf8' },
+  background: { light: '#090d16', dark: '#090d16' },
+  surface: { light: '#131b2e', dark: '#131b2e' },
+  foreground: { light: '#f8fafc', dark: '#f8fafc' },
+  muted: { light: '#94a3b8', dark: '#94a3b8' },
+  border: { light: '#23314f', dark: '#23314f' },
+  success: { light: '#10b981', dark: '#10b981' },
+  warning: { light: '#f59e0b', dark: '#f59e0b' },
+  error: { light: '#ef4444', dark: '#ef4444' },
+  indigo: { light: '#6366f1', dark: '#6366f1' },
+  indigoGlow: { light: '#a5b4fc', dark: '#a5b4fc' },
 };
 
 module.exports = { themeColors };

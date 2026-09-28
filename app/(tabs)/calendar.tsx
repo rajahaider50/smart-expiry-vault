@@ -1,0 +1,14 @@
+import { MaterialIcons } from '@expo/vector-icons';
+import { ScrollView, Text, View } from 'react-native';
+import { ScreenContainer } from '@/components/screen-container';
+import { daysUntil, seedVaultItems, statusFor } from '@/lib/vault-data';
+
+export default function CalendarScreen() {
+  const items = [...seedVaultItems].sort((a, b) => daysUntil(a.expiry) - daysUntil(b.expiry));
+  return <ScreenContainer className="px-5" containerClassName="bg-background"><ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 30 }}>
+    <View className="pb-5 pt-3"><Text className="text-xs font-semibold uppercase tracking-[2px] text-indigo">RENEWAL RADAR</Text><Text className="mt-1 text-3xl font-bold text-foreground">Alerts & calendar</Text><Text className="mt-2 text-sm leading-5 text-muted">A calm view of every date your vault is watching.</Text></View>
+    <View className="mb-5 rounded-3xl border border-border bg-surface p-5"><View className="flex-row items-center justify-between"><Text className="text-base font-bold text-foreground">September 2026</Text><View className="flex-row gap-2"><View className="h-8 w-8 items-center justify-center rounded-full bg-background"><MaterialIcons name="chevron-left" size={18} color="#94a3b8" /></View><View className="h-8 w-8 items-center justify-center rounded-full bg-indigo"><MaterialIcons name="chevron-right" size={18} color="#fff" /></View></View></View><View className="mt-5 flex-row justify-between">{['M','T','W','T','F','S','S'].map((day, i) => <Text key={`${day}${i}`} className="w-8 text-center text-xs font-semibold text-muted">{day}</Text>)}</View><View className="mt-3 flex-row flex-wrap justify-between gap-y-3">{Array.from({ length: 30 }, (_, i) => { const day = i + 1; const active = [5, 12, 18].includes(day); return <View key={day} className="h-8 w-8 items-center justify-center rounded-full" style={{ backgroundColor: active ? '#6366f130' : 'transparent' }}><Text className="text-xs" style={{ color: active ? '#a5b4fc' : '#cbd5e1' }}>{day}</Text>{active && <View className="absolute bottom-0 h-1 w-1 rounded-full bg-indigo" />}</View>; })}</View></View>
+    <Text className="mb-3 text-lg font-bold text-foreground">Upcoming expiries</Text>
+    {items.map((item) => { const days = daysUntil(item.expiry); const status = statusFor(days); return <View key={item.id} className="mb-3 flex-row items-center rounded-2xl border border-border bg-surface p-4"><View className="mr-3 h-10 w-10 items-center justify-center rounded-xl bg-background"><MaterialIcons name="event" size={20} color={status.color} /></View><View className="flex-1"><Text className="font-semibold text-foreground">{item.title}</Text><Text className="mt-1 text-xs text-muted">{item.expiry} · {item.category}</Text></View><Text className="text-xs font-bold" style={{ color: status.color }}>{status.label}</Text></View>; })}
+  </ScrollView></ScreenContainer>;
+}

@@ -1,0 +1,9 @@
+{
+  "app": "Smart Expiry & Warranty Vault",
+  "phase": "01_MVP_RELEASE",
+  "icon_prompt": "App icon vector graphic, a modern geometric vault lock integrated with a sandglass expiry emblem, glowing neon purple and cyan accents on deep matte slate background, 3D claymorphic style, crisp lines, app store badge ready",
+  "splash_video_prompt": "Cinematic 3D animation of a matte dark metallic vault shield closing smoothly. Once locked, a glowing neon cyan pulse spreads outward in a circular wave, highlighting a digital clock ticking down. High-tech sci-fi UI atmosphere, 60fps, smooth easing.",
+  "duration_seconds": 2.5,
+  "loop": true,
+  "handoff": "Place generated PNG/WebP/Lottie assets in assets/images, assets/vectors, or assets/lottie using the asset_id filenames from 01_ai_images.json."
+}
